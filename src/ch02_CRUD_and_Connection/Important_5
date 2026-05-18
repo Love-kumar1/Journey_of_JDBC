@@ -1,0 +1,11 @@
+Class.forname(org.postgresql.Driver);   --- Drivers loaded
+
+Connection connection = DriverManager.getConnection(url, username, password); --- connection established
+
+Statement statement = connection.createStatement;  --- statement created
+ResultSet resultSet = statement.executeQuery(query);    --- Executed sql query
+
+statement has two method
+
+executeUpdate()   -- used when insert data
+executequery()   -- used when retrieve data
