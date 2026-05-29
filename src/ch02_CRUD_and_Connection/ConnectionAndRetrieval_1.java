@@ -1,6 +1,7 @@
 package ch02_CRUD_and_Connection;
 
 import java.sql.*;
+
 public class ConnectionAndRetrieval_1 {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
@@ -12,8 +13,7 @@ public class ConnectionAndRetrieval_1 {
         try {
             Class.forName("org.postgresql.Driver");
             System.out.println("Driver loaded");
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
@@ -23,7 +23,7 @@ public class ConnectionAndRetrieval_1 {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
 
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -31,7 +31,7 @@ public class ConnectionAndRetrieval_1 {
 
                 System.out.println();
                 System.out.println("==================");
-//                System.out.println(id + " " + name + " " + department);
+                // System.out.println(id + " " + name + " " + department);
                 System.out.println("ID: " + id);
                 System.out.println("Name: " + name);
                 System.out.println("Department: " + department);
@@ -42,8 +42,7 @@ public class ConnectionAndRetrieval_1 {
 
             System.out.println();
             System.out.println("Database connection closed");
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
