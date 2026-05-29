@@ -1,0 +1,9 @@
+create table reservations(
+	reservation_id serial primary key,
+	guest_name varchar(255) not null,
+	room_number INT not null,
+	contact_number varchar(11),
+	reservation_date timestamp default current_timestamp
+);
+
+		select * from reservations;
