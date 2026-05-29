@@ -1,0 +1,32 @@
+create type gender as enum (
+'male',
+'female',
+'other'
+);
+
+create table patient (
+	id serial primary key,
+	name varchar(255) not null,
+	age int not null,
+	gender gender not null
+);
+
+create table doctor (
+	id serial primary key,
+	name varchar(255) not null,
+	specialization varchar(300) not null
+);
+
+create table appointment (
+    id serial primary key,
+	patient_id int not null,
+	doctor_id int not null,
+	appointment_date Date not null,
+	constraint fk_patient foreign key(patient_id) references patient(id),
+	constraint fk_doctor foreign key(doctor_id) references doctor(id)
+);
+
+insert into doctor(name, specialization)
+values
+('Pankaj Jain', 'Physician'),
+('Arslan Ahmed', 'cardiologist');
